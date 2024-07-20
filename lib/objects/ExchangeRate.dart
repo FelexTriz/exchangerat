@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class ExchangeRate {
   final String result;
   final String documentation;
@@ -36,7 +38,11 @@ class ExchangeRate {
       ),
     );
   }
-
+  static Map<String, double> parseJsonToMap(String jsonString) {
+  final Map<String, dynamic> decodedMap = json.decode(jsonString);
+  final Map<String, double> ratesMap = decodedMap.map((key, value) => MapEntry(key, value.toDouble()));
+  return ratesMap;
+}
   Map<String, dynamic> toJson() {
     return {
       'result': result,

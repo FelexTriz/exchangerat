@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       // 使用Obx(()=>每当改变计数时，就更新Text()。
-      appBar: AppBar(title:Text("极速汇率(离线版)")),
+      appBar: AppBar(title:Text("极速汇率")),
 
       body: GetBuilder<Controller>(
         init: Controller(),

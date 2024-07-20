@@ -9,7 +9,17 @@ class ExchangeRateCard extends StatelessWidget {
   double amount ;
   TextEditingController editingController = new TextEditingController();
   var containerColor = Colors.grey[200];
+  //Card的高度
   double _height = 95;
+
+  Map<String, double> conversionRates = {
+    "USD" : 1,
+    "CNY" : 1,
+    "EUR" : 1,
+    "HKD" : 1,
+    "JPY" : 1,
+    "GBP":1
+  };
 
 
   ExchangeRateCard({
@@ -17,6 +27,7 @@ class ExchangeRateCard extends StatelessWidget {
     required this.currencyCode,
     required this.amount,
     required this.currencyName,
+
   });
 
   @override
@@ -58,6 +69,7 @@ class ExchangeRateCard extends StatelessWidget {
                           child: TextField(
                             onTap: () {
                               controller.onTap(currencyCode);
+                              // controller.onTap2(this);
                             },
                             keyboardType: TextInputType.number,
                             controller: editingController,
@@ -69,9 +81,7 @@ class ExchangeRateCard extends StatelessWidget {
                               hintText: editingController.text,
                             ),
                             onChanged:(String value){
-                              print(value);
-                              controller.onchange(currencyCode,value);
-                              // controller.onchange2(this,value);
+                              controller.onchange(this,value);
 
                             } ,
                           ),
