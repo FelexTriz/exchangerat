@@ -31,10 +31,10 @@ class Controller extends GetxController{
       
       if(card.currencyCode == code){
         card.containerColor =  Colors.grey[350];
-        card.changeHeight(100);
+        card.changeHeight(85);
         }
       else{
-        card.changeHeight(95);
+        card.changeHeight(80);
         card.containerColor = Colors.grey[200];
       }
     }
