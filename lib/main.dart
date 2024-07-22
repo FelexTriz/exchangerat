@@ -1,6 +1,7 @@
 import 'package:exchangerat/controller/Controller.dart';
 import 'package:exchangerat/objectres.dart';
 import 'package:exchangerat/widget/ExchangeRateCard.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +30,8 @@ class Home extends StatelessWidget {
                 controller.cards[2],
                 controller.cards[3],
                 controller.cards[4],
-                controller.cards[5]
+                controller.cards[5],
+                
               ],
           );
         }

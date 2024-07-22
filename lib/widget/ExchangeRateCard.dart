@@ -1,4 +1,5 @@
 import 'package:exchangerat/controller/Controller.dart';
+import 'package:exchangerat/widget/ChangeRate.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,6 +39,8 @@ class ExchangeRateCard extends StatelessWidget {
         return Dismissible(
           //card滑动的key
           key: Key(currencyCode),
+          confirmDismiss: _confirmDismiss,
+
           background: slideLeftBackground(),
           secondaryBackground: slideRightBackground(),
           child: AnimatedContainer(
@@ -78,14 +81,12 @@ class ExchangeRateCard extends StatelessWidget {
                               ),
                               onChanged:(String value){
                                 controller.onchange(this,value);
-          
                               } ,
                             ),
                           ),
                           Text(currencyName)
                       ],
-                    )
-                  ,
+                    ) ,
               ],
             ),
           ),
@@ -152,4 +153,10 @@ void changeHeight(double newHeight)=> _height = newHeight;
       ),
     );
   }
+    Future<bool?> _confirmDismiss(DismissDirection direction) async{
+    
+    await Future.delayed(Duration(microseconds: 20));
+    Get.to(()=>ChangeRate());
+    return false;
+}
 }

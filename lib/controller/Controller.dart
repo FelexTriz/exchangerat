@@ -58,6 +58,8 @@ class Controller extends GetxController{
      update();
   }
 
+
+
   
 }
 
