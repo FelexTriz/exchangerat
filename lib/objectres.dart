@@ -1,4 +1,1 @@
-class uuu{
- String name = "dshjadhjksadas";
-  uuu(this.name);
-}
+import 'package:exchangerat/objects/Currency.dart';

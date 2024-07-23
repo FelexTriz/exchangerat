@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:exchangerat/network/request.dart';
+import 'package:exchangerat/objects/Currency.dart';
 import 'package:exchangerat/objects/ExchangeRate.dart';
 import 'package:exchangerat/widget/ExchangeRateCard.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class Controller extends GetxController{
                             ExchangeRateCard(flagImagePath: "assets/flags/hkd.png", currencyCode: "HKD", amount: 0, currencyName: "港币"),
                             ExchangeRateCard(flagImagePath: "assets/flags/jpy.png", currencyCode: "JPY", amount: 0, currencyName: "日元"),
                             ExchangeRateCard(flagImagePath: "assets/flags/gbp.png", currencyCode: "GBP", amount: 0, currencyName: "英镑")].obs;
+
+  RxList SimpleCards = Currency.LoadCurrency().obs;
   
 @override
   Future<void> onInit() async {
