@@ -19,13 +19,15 @@ class SimpleExchangeCard extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return
-    Row(
+    return Row(
               children: [
-                Image.asset(
-                  flagImagePath,
-                  width: 40.0,
-                  height: 40.0,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    flagImagePath,
+                    width: 40.0,
+                    height: 40.0,
+                  ),
                 ),
                 SizedBox(width: 10.0),
                 Text(currencyName),
