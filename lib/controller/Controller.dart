@@ -21,6 +21,7 @@ class Controller extends GetxController{
 @override
   Future<void> onInit() async {
     // TODO: implement onInit
+    
     for (ExchangeRateCard card in cards) {
       card.conversionRates = ExchangeRate.parseJsonToMap(await NetworkService.getData("http://1.15.122.120:8828/api/${card.currencyCode}"));
     }

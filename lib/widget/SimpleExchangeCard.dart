@@ -1,15 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class SimpleExchangeCard extends StatelessWidget{
   String flagImagePath; // 货币国旗的URL
   final String currencyName; // 货币名称
   final String currencyCode; // 货币代码
+  final String currencyConutry;//货币国家aac2
   bool isSelected = false;// 是否被选中;
-
    SimpleExchangeCard({
     required this.currencyName,
     required this.currencyCode,  
-}) : flagImagePath = "assets/flags/" + "cny" + ".png" {
+    required this.currencyConutry,
+}) :  flagImagePath = File('assets/flags/' + currencyConutry + '.png').existsSync()
+          ? 'assets/flags/' + currencyConutry + '.png'
+          : 'assets/flags/cny.png' {
     // 构造函数体，可以进行其他非 final 属性的赋值或初始化操作
     // 示例：根据某些条件设置 isSelected
     

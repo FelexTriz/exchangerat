@@ -20,6 +20,7 @@ class ChangeRate extends StatelessWidget{
             appBar: AppBar(
               title: Stack(
                 children: [
+
                   Align(
                     alignment: Alignment.center,
                     child: Text(title,  textAlign: TextAlign.center,style: TextStyle(
@@ -46,7 +47,7 @@ class ChangeRate extends StatelessWidget{
                     itemBuilder: (BuildContext context, int index){
                       return controller.SimpleCards[index];
                     },
-                    // itemCount: 20,
+                     itemCount: controller.SimpleCards.length,
                 )
             ),
           ),
