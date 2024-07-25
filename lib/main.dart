@@ -1,6 +1,4 @@
 import 'package:exchangerat/controller/Controller.dart';
-import 'package:exchangerat/objectres.dart';
-import 'package:exchangerat/widget/ExchangeRateCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,10 +7,10 @@ void main() => runApp(GetMaterialApp(home: Home()));
 
 
 class Home extends StatelessWidget {
-
+  
   @override
   Widget build(context) {
-
+    Get.put(Controller());
     // 使用Get.put()实例化你的类，使其对当下的所有子路由可用。
     
 

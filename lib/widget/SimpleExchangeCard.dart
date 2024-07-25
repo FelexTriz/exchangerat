@@ -1,6 +1,10 @@
 import 'dart:io';
 
+import 'package:exchangerat/controller/Controller.dart';
+import 'package:exchangerat/network/request.dart';
+import 'package:exchangerat/objects/ExchangeRate.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SimpleExchangeCard extends StatelessWidget{
   String flagImagePath; // 货币国旗的URL
@@ -24,22 +28,38 @@ class SimpleExchangeCard extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    flagImagePath,
-                    width: 40.0,
-                    height: 40.0,
+    return GetBuilder<Controller>(
+      builder: (controller) {
+        return RawMaterialButton(
+          onPressed: () {
+            controller.selectedCard.update((value) async {
+              value?.currencyCode = currencyCode;
+              value?.currencyName = currencyName;
+              value?.flagImagePath =  "assets/flags/${currencyConutry}"+ ".png";
+              value?.conversionRates = ExchangeRate.parseJsonToMap(await NetworkService.getData("http://1.15.122.120:8828/api/${currencyCode}"));
+            });
+            controller.update();
+            Get.back();
+          },
+          child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          flagImagePath,
+                          width: 40.0,
+                          height: 40.0,
+                        ),
+                      ),
+                      SizedBox(width: 10.0),
+                      Text(currencyName),
+                      SizedBox(width: 10.0),
+                      Text(currencyCode)
+                    ]
                   ),
-                ),
-                SizedBox(width: 10.0),
-                Text(currencyName),
-                SizedBox(width: 10.0),
-                Text(currencyCode)
-              ]
-            );
+        );
+      }
+    );
     throw UnimplementedError();
   }
 

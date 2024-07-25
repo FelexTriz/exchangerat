@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ExchangeRateCard extends StatelessWidget {
-  final String flagImagePath;
-  final String currencyCode;
-  final String currencyName;
+  String flagImagePath;
+  String currencyCode;
+ String currencyName;
   double amount ;
   TextEditingController editingController = new TextEditingController();
   var containerColor = Colors.grey[200];
@@ -153,9 +153,16 @@ void changeHeight(double newHeight)=> _height = newHeight;
       ),
     );
   }
+
     Future<bool?> _confirmDismiss(DismissDirection direction) async{
     
     await Future.delayed(Duration(microseconds: 20));
+    Controller c = Get.find();
+
+    c.selectedCard.value = this;
+    c.selectedCard.update((val) { 
+      val = this;
+    });
     Get.to(()=>ChangeRate());
     return false;
 }

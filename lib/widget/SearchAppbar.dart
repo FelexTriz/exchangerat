@@ -53,7 +53,7 @@ class SearchAppBar extends StatelessWidget {
               valueListenable: _controller,
               builder: (context, value, child) {
                   return Visibility(
-                    visible: !value.text.isEmpty,
+                    visible: value.text.isNotEmpty,
                     child: IconButton(
                       icon: Icon(Icons.close),
                       onPressed: () {

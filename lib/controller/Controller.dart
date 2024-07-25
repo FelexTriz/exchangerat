@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:exchangerat/network/request.dart';
 import 'package:exchangerat/objects/Currency.dart';
 import 'package:exchangerat/objects/ExchangeRate.dart';
@@ -8,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Controller extends GetxController{
-  var count = 0.obs;
+   Rx<ExchangeRateCard> selectedCard = ExchangeRateCard(flagImagePath: "assets/flags/cny.png", currencyCode: "CNY", amount: 0, currencyName: "人民币").obs;
   RxList cards = [ExchangeRateCard(flagImagePath: "assets/flags/cny.png", currencyCode: "CNY", amount: 0, currencyName: "人民币",),
                             ExchangeRateCard(flagImagePath: "assets/flags/usd.png", currencyCode: "USD", amount: 0, currencyName: "美元"),
                             ExchangeRateCard(flagImagePath: "assets/flags/eur.png", currencyCode: "EUR", amount: 0, currencyName: "欧元"),
