@@ -1,4 +1,5 @@
 import 'package:exchangerat/controller/Controller.dart';
+import 'package:exchangerat/pages/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,11 +30,11 @@ class Home extends StatelessWidget {
                 controller.cards[3],
                 controller.cards[4],
                 controller.cards[5],
-                
               ],
           );
         }
-      )
+      ),
+      bottomNavigationBar: ElevatedButton(onPressed: (){Get.to(()=>LoginPage());}, child: Text("跳转login页面")),
       );
   }
 }
