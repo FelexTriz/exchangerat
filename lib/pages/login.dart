@@ -1,10 +1,14 @@
+import 'package:exchangerat/network/request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+// const Color primary = Color(0xfff2f9fe);
 const Color primary = Color(0xfff2f9fe);
+
 const Color secondary = Color(0xFFdbe4f3);
 const Color black = Color(0xFF000000);
 const Color white = Color(0xFFFFFFFF);
@@ -152,19 +156,15 @@ class _LoginPageState extends State<LoginPage> {
             height: 20,
           ),
           GestureDetector(
-            onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>LoginPage(),
-                  ));
+            onTap: () async {
+              
+              String res =  await NetworkService.getData("http://localhost:8828/user/login?mail=${_email.text}&password=${password.text}");
+              print(res);
             },
             child: Container(
-              
               padding: EdgeInsets.all(16),
               margin: EdgeInsets.symmetric(horizontal: 25),
               decoration: BoxDecoration(
-                
                   color:buttoncolor, borderRadius: BorderRadius.circular(25)),
               child: Center(
                 child: Text(
